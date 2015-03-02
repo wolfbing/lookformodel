@@ -36,7 +36,7 @@
 <body>
     <input ng-model="name" placeholder="bingbing">
     {% verbatim %}
-    <p>Hello {{name || bingbing}}!</p>
+    <p>Hello {{name || "bingbing"}}!</p>
     {% endverbatim %}
     {% block body %}{% endblock %}
     <!-- JS -->
