@@ -1,7 +1,7 @@
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
 
-from lookformodel import views as lkm_views
+from apps.lookformodel import views as lkm_views
 
 urlpatterns = patterns('',
     # Examples:
@@ -10,5 +10,5 @@ urlpatterns = patterns('',
 
     url(r'^admin/', include(admin.site.urls)),
 
-    url(r"^hello/$", lkm_views.hello),
+    url(r"^$", lkm_views.home),
 )
