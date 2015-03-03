@@ -1,0 +1,1 @@
+ul{margin:0;padding:0}ul li{list-style:none}.recommend-line{position:relative;padding:20px 0;text-align:center}.recommend-line:before,.recommend-line:after{display:block;position:absolute;top:32px;width:44%;content:"";border-top:1px solid #ededed}.recommend-line:before{left:0}.recommend-line:after{right:0}

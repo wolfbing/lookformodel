@@ -1,0 +1,26 @@
+ul {
+	margin: 0;
+	padding: 0;
+    li {
+        list-style: none;
+    }
+}
+.recommend-line {
+    position: relative;
+    padding: 20px 0;
+    text-align: center;
+    &:before, &:after {
+        display: block;
+        position: absolute;
+        top: 32px;
+        width: 44%;
+        content: "";
+        border-top: 1px solid #ededed;
+    }
+    &:before {
+    	left: 0;
+    }
+    &:after {
+    	right: 0;
+    }
+}

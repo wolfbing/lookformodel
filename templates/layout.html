@@ -1,6 +1,6 @@
 {% load staticfiles %}
 <!DOCTYPE html>
-<html ng-app>
+<html ng-app="init">
 
 <head>
     <title>{% block title %}{% endblock %}</title>
@@ -34,7 +34,7 @@
 
 <body>
 
-    <header class="am-topbar am-header">
+    <header class="am-topbar am-topbar-fixed-top">
         <div class="am-topbar-brand">
             <strong>找模特</strong>
         </div>
@@ -55,14 +55,21 @@
                         <li><a href="#"><span class="am-icon-power-off"></span> 退出</a>
                         </li>
                     </ul>
+                    
                 </li>
             </ul>
+
+            <div class="am-topbar-right">
+                <button class="am-btn am-btn-secondary am-topbar-btn am-btn-sm"><span class="am-icon-pencil"></span> 注册</button>
+            </div>
+            <div class="am-topbar-right">
+                <button class="am-btn am-btn-primary am-topbar-btn am-btn-sm"><span class="am-icon-user"></span> 登录</button>
+            </div>
+
+            
         </nav>
     </header>
-
-    <input ng-model="name" placeholder="bingbing"> {% verbatim %}
-    <p>Hello {{name || "bingbing"}}!</p>
-    {% endverbatim %}
+   
     {% block body %}
     {% endblock %}
     <footer class="am-footer">

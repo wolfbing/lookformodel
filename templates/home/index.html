@@ -5,43 +5,42 @@
 {% endblock %}
 
 {% block body %}
+	<div class="banner">
+	  	<div class="am-g">
+	    	<div class="am-u-lg-12">
+	      		<h1 class="banner-title">清晨来打铁</h1>
+
+	      		<p>
+	        		期待你的参与，共同打造一块好铁
+	      		</p>
+
+	      		<p>
+	        		<a href="#" class="am-btn am-btn-sm banner-btn">获取新get技能√</a>
+	      		</p>
+	      		<input class="am-form-field am-radius" ng-model="name" placeholder="bingbing">
+			    {% verbatim %}
+			        <p>Hello {{name || "bingbing"}}!</p>
+			    {% endverbatim %}
+	    	</div>
+	  	</div>
+	</div>
+	
 	<article class="recommend-container am-g am-g-fixed">
-		<section class="am-u-lg-3 am-u-md-4 am-u-md-sm-12">
-			<div class="recommend-box"><img src="/static/images/img/a.png" alt=""></div>
-		</section>
-		<section class="am-u-lg-3 am-u-md-4 am-u-md-sm-12">
-			<div class="recommend-box"><img src="/static/images/img/a.png" alt=""></div>
-		</section>
-		<section class="am-u-lg-3 am-u-md-4 am-u-md-sm-12">
-			<div class="recommend-box"><img src="/static/images/img/a.png" alt=""></div>
-		</section>
-		<section class="am-u-lg-3 am-u-md-4 am-u-md-sm-12">
-			<div class="recommend-box"><img src="/static/images/img/a.png" alt=""></div>
-		</section>
-		<section class="am-u-lg-3 am-u-md-4 am-u-md-sm-12">
-			<div class="recommend-box"><img src="/static/images/img/a.png" alt=""></div>
-		</section>
-		<section class="am-u-lg-3 am-u-md-4 am-u-md-sm-12">
-			<div class="recommend-box"><img src="/static/images/img/a.png" alt=""></div>
-		</section>
-		<section class="am-u-lg-3 am-u-md-4 am-u-md-sm-12">
-			<div class="recommend-box"><img src="/static/images/img/a.png" alt=""></div>
-		</section>
-		<section class="am-u-lg-3 am-u-md-4 am-u-md-sm-12">
-			<div class="recommend-box"><img src="/static/images/img/a.png" alt=""></div>
-		</section>
-		<section class="am-u-lg-3 am-u-md-4 am-u-md-sm-12">
-			<div class="recommend-box"><img src="/static/images/img/a.png" alt=""></div>
-		</section>
-		<section class="am-u-lg-3 am-u-md-4 am-u-md-sm-12">
-			<div class="recommend-box"><img src="/static/images/img/a.png" alt=""></div>
-		</section>
-		<section class="am-u-lg-3 am-u-md-4 am-u-md-sm-12">
-			<div class="recommend-box"><img src="/static/images/img/a.png" alt=""></div>
-		</section>
-		<section class="am-u-lg-3 am-u-md-4 am-u-md-sm-12">
-			<div class="recommend-box"><img src="/static/images/img/a.png" alt=""></div>
-		</section>
+		<div class="recommend-line">
+			<span>为您推荐</span>
+		</div>
+		<ul ng-controller="indexPicCtrl">
+			{% verbatim %}
+			<li ng-repeat="model in models" class="am-u-lg-3 am-u-md-4 am-u-md-sm-12">
+				<div class="recommend-box">
+					<a href="/model/"><img src="{{model.src}}" alt=""></a>
+					<div class="describe">
+						<p>兵兵最叼毛</p>
+					</div>
+				</div>
+			</li>
+			{% endverbatim %}
+		</ul>
 	</article>
 {% endblock %}
 

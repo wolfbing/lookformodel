@@ -10,5 +10,6 @@ urlpatterns = patterns('',
 
     url(r'^admin/', include(admin.site.urls)),
 
-    url(r"^$", lkm_views.home),
+    # url(r"^$", lkm_views.home),
+    url(r"^model/", lkm_views.model_list),
 )
