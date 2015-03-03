@@ -1,1 +1,14 @@
-detail.html
+{% extends "layout.html" %}
+{% load staticfiles %}
+{% block css %}
+    <link rel="stylesheet" href="/static/css/apps/model/detail.css">
+{% endblock %}
+
+{% block body %}
+	<p>详细页面</p>
+	<a href="{% url 'model_list' %}">返回omte列表</a>
+{% endblock %}
+
+{% block javascript %}
+	{#}<script type="text/javascript" src="/static/js/apps/model/detail.js"></script>{#}
+{% endblock %}

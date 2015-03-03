@@ -30,16 +30,14 @@
 			<span>为您推荐</span>
 		</div>
 		<ul ng-controller="indexPicCtrl">
-			{% verbatim %}
 			<li ng-repeat="model in models" class="am-u-lg-3 am-u-md-4 am-u-md-sm-12">
 				<div class="recommend-box">
-					<a href="/model/"><img src="{{model.src}}" alt=""></a>
+					<a href="{% url 'model_detail' %}"><img src="{% verbatim %}{{model.src}}{% endverbatim %}" alt=""></a>
 					<div class="describe">
-						<p>兵兵最叼毛</p>
+						<p>兵兵最叼毛点我查看详细页面</p>
 					</div>
 				</div>
 			</li>
-			{% endverbatim %}
 		</ul>
 	</article>
 {% endblock %}
