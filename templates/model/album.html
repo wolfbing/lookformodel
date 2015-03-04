@@ -2,6 +2,7 @@
 {% load staticfiles %}
 {% block css %}
 	{{ block.super }}
+	<link rel="stylesheet" href="{% static 'css/apps/model/model-album.css' %}">
 {% endblock %}
 
 {% block model_content %}
@@ -14,9 +15,122 @@
 	    </li>
 	</ul>
 	<div class="content">
-		<p class="content-title">我是相册列表<a class="pull-right" href="#">修改</a></p>
-		
+		<p class="content-title">相册列表<a data-am-modal="{target: '#new-album-modal'}" class="pull-right" href="#">新建</a></p>
+		<div class="album">
+			<div class="type">人物</div>
+			<div class="am-panel am-panel-default box-shadow am-u-md-4 am-g-collapse">
+				<div class="am-dropdown" data-am-dropdown>
+				  	<button class="am-btn am-btn-primary am-dropdown-toggle" data-am-dropdown-toggle><span class="am-icon-caret-down"></span>
+					</button>
+					<ul class="am-dropdown-content">
+					    <li><a data-am-modal="{target: '#edit-album-modal'}" href="#">编辑</a>
+					    </li>
+					    <li><a data-am-modal="{target: '#delete-vlbum-confirm'}" href="#">删除</a>
+					    </li>
+					</ul>
+				</div>
+
+			    <a href="{% url 'model_photo' %}"><img src="{% static 'images/img/a.png' %}" alt="头像"></a>
+			    <p class="album-word">头像<span class="pull-right">2015/03/04</span></p>
+			</div>
+		</div>
 	</div>
+
+	<!-- 弹出框 -->
+	<!-- 编辑相册 -->
+	<div class="am-modal" tabindex="-1" id="edit-album-modal">
+	    <div class="am-modal-dialog">
+	        <div class="am-modal-hd">编辑相册信息
+	            <a href="javascript: void(0)" class="am-close am-close-spin" data-am-modal-close>&times;</a>
+	        </div>
+	        <div class="am-modal-bd">
+	            <form class="am-form am-form-horizontal">
+				    <div class="am-form-group">
+				        <label for="album-name" class="am-u-sm-2 am-form-label">名称</label>
+				        <div class="am-u-sm-10">
+				            <input type="text" id="album-name" placeholder="输入新的相册名称">
+				        </div>
+				    </div>
+
+				    <div class="am-form-group">
+				        <label for="album-describe" class="am-u-sm-2 am-form-label">描述</label>
+				        <div class="am-u-sm-10">
+				            <textarea id="album-describe" placeholder="相册描述"></textarea>
+				        </div>
+				    </div>
+					
+					<div class="am-form-group">
+					    <label for="doc-select-1" class="am-u-sm-2 am-form-label">分类</label>
+					    <select id="doc-select-1" class="am-u-sm-4 am-u-end">
+					        <option value="option1">人物</option>
+					        <option value="option2">头像</option>
+					        <option value="option3">全身照</option>
+					    </select>
+					    <span class="am-form-caret"></span>
+					</div>
+
+				</form>
+	        </div>
+	        <div class="am-modal-footer">
+		      	<span class="am-modal-btn">确定</span>
+		    </div>
+	    </div>
+	</div>
+	<!-- 新建相册 -->
+	<div class="am-modal" tabindex="-1" id="new-album-modal">
+	    <div class="am-modal-dialog">
+	        <div class="am-modal-hd">新建相册
+	            <a href="javascript: void(0)" class="am-close am-close-spin" data-am-modal-close>&times;</a>
+	        </div>
+	        <div class="am-modal-bd">
+	            <form class="am-form am-form-horizontal">
+				    <div class="am-form-group">
+				        <label for="album-name" class="am-u-sm-2 am-form-label">名称</label>
+				        <div class="am-u-sm-10">
+				            <input type="text" id="album-name" placeholder="输入新的相册名称">
+				        </div>
+				    </div>
+
+				    <div class="am-form-group">
+				        <label for="album-describe" class="am-u-sm-2 am-form-label">描述</label>
+				        <div class="am-u-sm-10">
+				            <textarea id="album-describe" placeholder="相册描述"></textarea>
+				        </div>
+				    </div>
+					
+					<div class="am-form-group">
+					    <label for="doc-select-1" class="am-u-sm-2 am-form-label">分类</label>
+					    <select id="doc-select-1" class="am-u-sm-4 am-u-end">
+					        <option value="option1">人物</option>
+					        <option value="option2">头像</option>
+					        <option value="option3">全身照</option>
+					    </select>
+					    <span class="am-form-caret"></span>
+					</div>
+
+				</form>
+	        </div>
+	        <div class="am-modal-footer">
+		      	<span class="am-modal-btn">确定</span>
+		    </div>
+	    </div>
+	</div>
+	<!-- 删除相册 -->
+	<div class="am-modal am-modal-confirm" tabindex="-1" id="delete-vlbum-confirm">
+	    <div class="am-modal-dialog">
+	        <div class="am-modal-hd">删除提醒</div>
+	        <div class="am-modal-bd">
+	            确定要删除此相册吗？
+	        </div>
+	        <div class="am-modal-footer">
+	            <span class="am-modal-btn" data-am-modal-cancel>取消</span>
+	            <span class="am-modal-btn" data-am-modal-confirm>确定</span>
+	        </div>
+	    </div>
+	</div>
+
+
+
 {% endblock %}
 
 {% block javascript %}
