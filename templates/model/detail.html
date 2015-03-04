@@ -1,14 +1,68 @@
-{% extends "layout.html" %}
+{% extends "model/model_template.html" %}
 {% load staticfiles %}
 {% block css %}
-    <link rel="stylesheet" href="/static/css/apps/model/detail.css">
+	{{ block.super }}
+    <link rel="stylesheet" href="{% static 'css/apps/model/model-detail.css' %}">
 {% endblock %}
 
-{% block body %}
-	<p>详细页面</p>
-	<a href="{% url 'model_list' %}">返回omte列表</a>
+{% block model_content %}
+	<ul class="am-nav am-nav-pills">
+	    <li><a href="{% url 'home' %}">首页</a>
+	    </li>
+	    <li class="am-active"><a href="#">个人资料</a>
+	    </li>
+	    <li><a href="{% url 'model_album' %}">相册</a>
+	    </li>
+	</ul>
+	<div class="content">
+		<p class="content-title">基本资料<a class="pull-right" href="#">修改</a></p>
+		<div class="list">
+			<div class="left">姓名：</div>
+			<div class="right">wolfbing</div>
+			<div class="left">性别：</div>
+			<div class="right">女</div>
+			<div class="left">年龄：</div>
+			<div class="right">24</div>
+			<div class="left">兼职类型：</div>
+			<div class="right">
+				<fieldset disabled>
+					<div class="am-form-group">
+						<label ng-repeat="model in ['服装模特','车模','礼仪','手模','胸模','足模','其他']" class="am-checkbox-inline">
+							<input type="checkbox" checked>
+							{% verbatim %}{{model}}{% endverbatim %}
+						</label>
+					</div>
+				</fieldset>
+			</div>
+			<div class="left">所在地：</div>
+			<div class="right">上海浦东</div>
+			<div class="left">身高：</div>
+			<div class="right">173cm</div>
+			<div class="left">体重：</div>
+			<div class="right">55kg</div>
+			<div class="left">胸围：</div>
+			<div class="right">None</div>
+			<div class="left">腰围：</div>
+			<div class="right">None</div>
+			<div class="left">臀围：</div>
+			<div class="right">None</div>
+			<div class="left">脚尺码：</div>
+			<div class="right">37码</div>
+		</div>
+		<p class="content-title">帐号信息<a class="pull-right" href="#">修改</a></p>
+		<div class="list">
+			<div class="left">帐号：</div>
+			<div class="right">wolfbing@gmail.com</div>
+			<div class="left">编号：</div>
+			<div class="right">778778767</div>
+			<div class="left">电话：</div>
+			<div class="right">15651666123</div>
+			<div class="left">身份证号：</div>
+			<div class="right">320305123456781234</div>
+		</div>
+	</div>
 {% endblock %}
 
 {% block javascript %}
-	{#}<script type="text/javascript" src="/static/js/apps/model/detail.js"></script>{#}
+	{#}<script type="text/javascript" src="{% static 'js/apps/model/detail.js' %}"></script>{#}
 {% endblock %}

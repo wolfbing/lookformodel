@@ -5,6 +5,30 @@ ul {
         list-style: none;
     }
 }
+fieldset {
+    margin: 0;
+    padding: 0;
+}
+// 清除浮动
+.clearfix {
+    &:before,
+    &:after {
+        content: " ";
+        display: table;
+    }
+    &:after {
+        clear: both;
+    }
+}
+.pull-left {
+    float: left;
+}
+.pull-right {
+    float: right;
+}
+.text-center {
+    text-align: center;
+}
 .recommend-line {
     position: relative;
     padding: 20px 0;
@@ -22,5 +46,25 @@ ul {
     }
     &:after {
     	right: 0;
+    }
+}
+.main-container {
+    max-width: 1248px;
+    margin: 20px auto;
+}
+
+
+
+@media screen and (max-width: 640px) {
+    .sm-hidden {
+        display: none;
+    }
+}
+
+//效果
+.box-shadow {
+    box-shadow: 0 1px 2px #c5c5c5;
+    &:hover {
+        box-shadow: 0 2px 8px #bbb;
     }
 }

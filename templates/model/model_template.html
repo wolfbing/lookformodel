@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+{% load staticfiles %}
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/apps/model/model.css' %}">
+{% endblock %}
+
+{% block body %}
+	<!-- <p>详细页面</p>
+	<a href="{% url 'model_list' %}">返回omte列表</a> -->
+
+	<div class="model-template main-container am-g am-g-fixed clearfix">
+		<aside class="side-bar sm-hidden">
+			<div class="head-pic am-panel am-panel-default box-shadow">
+			    <img src="{% static 'images/img/a.png' %}" alt="头像">
+			    <p class="text-center">wolfbing</p>
+			</div>
+			<div class="am-panel am-panel-default box-shadow">
+			    <div class="am-panel-bd">
+			        <p><span class="am-icon-bookmark"></span> 个人简介</p>
+			        <p>wo是我扶兵，我为自己带烟～``</p>
+			    </div>
+			</div>
+			<div class="am-panel am-panel-default box-shadow">
+			    <div class="am-panel-bd">
+			        <p><span class="am-icon-bookmark"></span> 公告</p>
+			        <p>时光静好，与君语；细水流年，与君同。—— lalal</p>
+			    </div>
+			</div>
+		</aside>
+		<article class="container">
+			{% block model_content %}
+			{% endblock %}
+		</article>
+
+	</div>
+
+
+{% endblock %}

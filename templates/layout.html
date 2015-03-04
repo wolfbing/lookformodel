@@ -12,11 +12,11 @@
     <meta name="description" content="{% block description %}{% endblock %}">
     <meta name="keywords" content="{% block keywords %}{% endblock %}">
 
-    <link rel="shortcut icon" href="{{STATIC_URL}}favicon.ico">
+    <link rel="shortcut icon" href="{% static 'favicon.ico' %}">
 
     <!-- CSS -->
-    <link rel="stylesheet" href="/static/plugins/AmazeUI-2.2.1/assets/css/amazeui.min.css">
-    <link rel="stylesheet" href="/static/css/layout.css"> {% block css %}{% endblock %}
+    <link rel="stylesheet" href="{% static 'plugins/AmazeUI-2.2.1/assets/css/amazeui.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/layout.css' %}"> {% block css %}{% endblock %}
 
     <!--[if lt IE 9]>
         <script>
@@ -36,12 +36,17 @@
 
     <header class="am-topbar am-topbar-fixed-top">
         <div class="am-topbar-brand">
-            <a href="{% url 'home' %}"><strong>找模特点我返回首页</strong></a>
+            <a href="{% url 'home' %}"><strong>找模特</strong></a>
         </div>
+        
         <button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-success am-show-sm-only" data-am-collapse="{target: '#topbar-collapse'}"><span class="am-sr-only">导航切换</span> <span class="am-icon-bars"></span>
         </button>
         <nav class="am-collapse am-topbar-collapse" id="topbar-collapse">
-
+            <form class="am-topbar-form am-topbar-left am-form-inline" role="search">
+                <div class="am-form-group">
+                    <input type="text" class="am-form-field am-input-sm" placeholder="搜索">
+                </div>
+            </form>
             <ul class="am-nav am-nav-pills am-topbar-nav am-topbar-right admin-header-list">
                 <li class="am-dropdown" data-am-dropdown>
                     <a class="am-dropdown-toggle" data-am-dropdown-toggle href="javascript:;">
@@ -78,10 +83,10 @@
     </footer>
 
     <!-- JS -->
-    <script type="text/javascript" src="/static/plugins/AmazeUI-2.2.1/assets/js/jquery.min.js"></script>
-    <script type="text/javascript" src="/static/plugins/AmazeUI-2.2.1/assets/js/amazeui.min.js"></script>
-    <script type="text/javascript" src="/static/plugins/angular/1.3.14/angular.min.js"></script>
-    <script type="text/javascript" src="/static/js/layout.js"></script>
+    <script type="text/javascript" src="{% static 'plugins/AmazeUI-2.2.1/assets/js/jquery.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'plugins/AmazeUI-2.2.1/assets/js/amazeui.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'plugins/angular/1.3.14/angular.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/layout.js' %}"></script>
     {% block javascript %}{% endblock %}
 </body>
 

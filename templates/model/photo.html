@@ -1,0 +1,24 @@
+{% extends "model/model_template.html" %}
+{% load staticfiles %}
+{% block css %}
+	{{ block.super }}
+{% endblock %}
+
+{% block model_content %}
+	<ul class="am-nav am-nav-pills">
+	    <li><a href="{% url 'home' %}">首页</a>
+	    </li>
+	    <li><a href="{% url 'model_detail' %}">个人资料</a>
+	    </li>
+	    <li class="am-active"><a href="#">相册</a>
+	    </li>
+	</ul>
+	<div class="content">
+		<p class="content-title">我是相片列表<a class="pull-right" href="#">修改</a></p>
+		
+	</div>
+{% endblock %}
+
+{% block javascript %}
+
+{% endblock %}

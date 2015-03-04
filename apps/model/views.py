@@ -11,3 +11,9 @@ def model_list(request):
 
 def model_detail(request):
 	return render_to_response("model/detail.html")
+
+def model_album(request):
+	return render_to_response("model/album.html")
+
+def model_photo(request):
+	return render_to_response("model/photo.html")
