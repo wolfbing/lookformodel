@@ -16,23 +16,26 @@
 	</ul>
 	<div class="content">
 		<p class="content-title">相册列表<a data-am-modal="{target: '#new-album-modal'}" class="pull-right" href="#">新建</a></p>
-		<div class="album">
-			<div class="type">人物</div>
-			<div class="am-panel am-panel-default box-shadow am-u-md-4 am-g-collapse">
-				<div class="am-dropdown" data-am-dropdown>
-				  	<button class="am-btn am-btn-primary am-dropdown-toggle" data-am-dropdown-toggle><span class="am-icon-caret-down"></span>
-					</button>
-					<ul class="am-dropdown-content">
-					    <li><a data-am-modal="{target: '#edit-album-modal'}" href="#">编辑</a>
-					    </li>
-					    <li><a data-am-modal="{target: '#delete-vlbum-confirm'}" href="#">删除</a>
-					    </li>
-					</ul>
-				</div>
+		<div class="album am-row">
+			<div class="type am-u-md-12">人物</div>
+			<div class="am-u-md-3 am-u-sm-4">
+				<div class="am-panel am-panel-default box-shadow am-g-collapse">
+					<div class="am-dropdown" data-am-dropdown>
+					  	<button class="am-btn am-btn-primary am-dropdown-toggle" data-am-dropdown-toggle><span class="am-icon-caret-down"></span>
+						</button>
+						<ul class="am-dropdown-content">
+						    <li><a data-am-modal="{target: '#edit-album-modal'}" href="#">编辑</a>
+						    </li>
+						    <li><a data-am-modal="{target: '#delete-album-confirm'}" href="#">删除</a>
+						    </li>
+						</ul>
+					</div>
 
-			    <a href="{% url 'model_photo' %}"><img src="{% static 'images/img/a.png' %}" alt="头像"></a>
-			    <p class="album-word">头像<span class="pull-right">2015/03/04</span></p>
+				    <a href="{% url 'model_photo' %}"><img src="{% static 'images/img/a.png' %}" alt="头像"></a>
+				    <p class="album-word">头像<span class="pull-right">2015/03/04</span></p>
+				</div>
 			</div>
+			
 		</div>
 	</div>
 
@@ -55,7 +58,7 @@
 				    <div class="am-form-group">
 				        <label for="album-describe" class="am-u-sm-2 am-form-label">描述</label>
 				        <div class="am-u-sm-10">
-				            <textarea id="album-describe" placeholder="相册描述"></textarea>
+				            <textarea id="album-describe" rows="3" placeholder="相册描述"></textarea>
 				        </div>
 				    </div>
 					
@@ -116,7 +119,7 @@
 	    </div>
 	</div>
 	<!-- 删除相册 -->
-	<div class="am-modal am-modal-confirm" tabindex="-1" id="delete-vlbum-confirm">
+	<div class="am-modal am-modal-confirm" tabindex="-1" id="delete-album-confirm">
 	    <div class="am-modal-dialog">
 	        <div class="am-modal-hd">删除提醒</div>
 	        <div class="am-modal-bd">

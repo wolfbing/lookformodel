@@ -2,6 +2,7 @@
 {% load staticfiles %}
 {% block css %}
 	{{ block.super }}
+	<link rel="stylesheet" href="{% static 'css/apps/model/model-album.css' %}">
 {% endblock %}
 
 {% block model_content %}
@@ -14,43 +15,27 @@
 	    </li>
 	</ul>
 	<div class="content">
-		<p class="content-title">相片列表<a class="pull-right" href="#">新建</a></p>
+		<p class="content-title">相片列表<a class="pull-right" href="#" data-am-modal="{target: '#upload-popup'}">上传照片</a></p>
 		<div class="photos pull-right">
 			<ul data-am-widget="gallery" class="am-gallery am-avg-sm-2
 					  am-avg-md-3 am-avg-lg-4 am-gallery-default" data-am-gallery="{ pureview: true }">
 			    <li>
-			        <div class="am-gallery-item">
+			        <div class="am-gallery-item am-g-collapse">
+			        	<div class="am-dropdown" data-am-dropdown>
+						  	<button class="am-btn am-btn-primary am-dropdown-toggle" data-am-dropdown-toggle><span class="am-icon-caret-down"></span>
+							</button>
+							<ul class="am-dropdown-content">
+							    <li><a data-am-modal="{target: '#edit-photo-modal'}" href="#">编辑</a>
+							    </li>
+							    <li><a data-am-modal="{target: '#move-photo-modal'}" href="#">移动到相册</a>
+							    </li>
+							    <li><a data-am-modal="{target: '#delete-photo-confirm'}" href="#">删除</a>
+							    </li>
+							</ul>
+						</div>
 			            <a href="http://cn.bing.com/az/hprichv/LondonTrainStation_GettyRR_139321755_ZH-CN742316019.jpg" class="">
 			                <img src="http://cn.bing.com/az/hprichv/LondonTrainStation_GettyRR_139321755_ZH-CN742316019.jpg" alt="远方 有一个地方 那里种有我们的梦想" />
 			                <h3 class="am-gallery-title">远方 有一个地方 那里种有我们的梦想</h3>
-			                <div class="am-gallery-desc">2375-09-26</div>
-			            </a>
-			        </div>
-			    </li>
-			    <li>
-			        <div class="am-gallery-item">
-			            <a href="http://s.cn.bing.net/az/hprichbg/rb/CardinalsBerries_ZH-CN10679090179_1366x768.jpg" class="">
-			                <img src="http://s.cn.bing.net/az/hprichbg/rb/CardinalsBerries_ZH-CN10679090179_1366x768.jpg" alt="某天 也许会相遇 相遇在这个好地方" />
-			                <h3 class="am-gallery-title">某天 也许会相遇 相遇在这个好地方</h3>
-			                <div class="am-gallery-desc">2375-09-26</div>
-			            </a>
-			        </div>
-			    </li>
-			    <li>
-			        <div class="am-gallery-item">
-			            <a href="http://s.cn.bing.net/az/hprichbg/rb/QingdaoJiaozhou_ZH-CN10690497202_1366x768.jpg" class="">
-			                <img src="http://s.cn.bing.net/az/hprichbg/rb/QingdaoJiaozhou_ZH-CN10690497202_1366x768.jpg" alt="不要太担
-					心 只因为我相信" />
-			                <h3 class="am-gallery-title">不要太担心 只因为我相信</h3>
-			                <div class="am-gallery-desc">2375-09-26</div>
-			            </a>
-			        </div>
-			    </li>
-			    <li>
-			        <div class="am-gallery-item">
-			            <a href="http://s.cn.bing.net/az/hprichbg/rb/FennecFox_ZH-CN13720911949_1366x768.jpg" class="">
-			                <img src="http://s.cn.bing.net/az/hprichbg/rb/FennecFox_ZH-CN13720911949_1366x768.jpg" alt="终会走过这条遥远的道路" />
-			                <h3 class="am-gallery-title">终会走过这条遥远的道路</h3>
 			                <div class="am-gallery-desc">2375-09-26</div>
 			            </a>
 			        </div>
@@ -59,6 +44,77 @@
 
 		</div>
 
+	</div>
+	
+	<!-- 上传照片 -->
+	<div class="am-popup" id="upload-popup">
+	    <div class="am-popup-inner">
+	        <div class="am-popup-hd">
+	            <h4 class="am-popup-title">上传照片</h4>
+	            <span data-am-modal-close class="am-close">&times;</span>
+	        </div>
+	        <div class="am-popup-bd">
+	            <input type="file">
+	        </div>
+	        <div class="button am-popup-bd">
+	            <button type="button" class="am-btn am-btn-primary">确认上传</button>
+	        </div>
+	    </div>
+	</div>
+
+
+	<!-- 编辑相片 -->
+	<div class="am-modal" tabindex="-1" id="edit-photo-modal">
+	    <div class="am-modal-dialog">
+	        <div class="am-modal-hd">编辑相片信息
+	            <a href="javascript: void(0)" class="am-close am-close-spin" data-am-modal-close>&times;</a>
+	        </div>
+	        <div class="am-modal-bd">
+	            <form class="am-form am-form-horizontal">
+				    <div class="am-form-group">
+				        <label for="album-name" class="am-u-sm-2 am-form-label">名称</label>
+				        <div class="am-u-sm-10">
+				            <input type="text" id="album-name" placeholder="取个好听的名字吧~">
+				        </div>
+				    </div>
+
+				    <div class="am-form-group">
+				        <label for="album-describe" class="am-u-sm-2 am-form-label">描述</label>
+				        <div class="am-u-sm-10">
+				            <textarea id="album-describe" rows="3" placeholder="相片描述"></textarea>
+				        </div>
+				    </div>
+				</form>
+	        </div>
+	        <div class="am-modal-footer">
+		      	<span class="am-modal-btn">确定</span>
+		    </div>
+	    </div>
+	</div>
+	<!-- 移动相片 -->
+	<div class="am-modal" tabindex="-1" id="move-photo-modal">
+	    <div class="am-modal-dialog">
+	        <div class="am-modal-hd">移动相片到</div>
+	        <div class="am-modal-bd">
+	            敬请期待
+	        </div>
+	        <div class="am-modal-footer">
+		      	<span class="am-modal-btn">移动</span>
+		    </div>
+	    </div>
+	</div>
+	<!-- 删除相片 -->
+	<div class="am-modal am-modal-confirm" tabindex="-1" id="delete-photo-confirm">
+	    <div class="am-modal-dialog">
+	        <div class="am-modal-hd">删除提醒</div>
+	        <div class="am-modal-bd">
+	            确定要删除此相片吗？
+	        </div>
+	        <div class="am-modal-footer">
+	            <span class="am-modal-btn" data-am-modal-cancel>取消</span>
+	            <span class="am-modal-btn" data-am-modal-confirm>确定</span>
+	        </div>
+	    </div>
 	</div>
 {% endblock %}
 

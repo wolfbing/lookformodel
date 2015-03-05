@@ -1,26 +1,41 @@
 @import "../../plugins/_css3";
-
 .album .album-word {
-	padding: 0 15px;
-}
-.album .am-g-collapse img {
-	width: 100%;
+    padding: 0 15px;
 }
 .am-g-collapse {
-	padding: 0;
-	position: relative;
+    padding: 0;
+    position: relative;
 }
-.album .am-g-collapse .am-dropdown {
-	position: absolute;
-	top: 0;
-	right: 0;
-	opacity: 0;
-	.transition(0.5s);
+.am-gallery, .album {
+    .am-g-collapse {
+    	
+        .am-dropdown {
+            position: absolute;
+            top: 0;
+            right: 0;
+            opacity: 0;
+            .transition(0.5s);
+        }
+        &:hover {
+    		.am-dropdown {
+    			opacity: 1;
+    		}
+    	}
+    	img {
+    		width: 100%;
+    	}
+    }
 }
-.album .am-g-collapse:hover .am-dropdown {
-	opacity: 1;
-}
-.am-form-group .am-u-sm-4 {
-	width: 33.33333333%;
-	margin: 0 1.5rem;
+
+
+.am-popup {
+	.button {
+		position: absolute;
+		bottom: 0;
+		width: 100%;
+		text-align: center;
+	}
+	button.am-btn {
+		
+	}
 }
