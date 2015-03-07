@@ -17,3 +17,6 @@ def model_album(request):
 
 def model_photo(request):
 	return render_to_response("model/photo.html")
+
+def notice(request):
+	return render_to_response("model/notice.html")

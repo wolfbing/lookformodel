@@ -6,4 +6,5 @@ urlpatterns = patterns('',
     url(r'^detail/$', views.model_detail, name="model_detail"),
     url(r'^album/$', views.model_album, name="model_album"),
     url(r'^album/photo/$', views.model_photo, name="model_photo"),
+    url(r'^notice/$', views.notice, name="notice"),
 )
