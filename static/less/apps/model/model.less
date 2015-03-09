@@ -4,9 +4,20 @@
 		float: left;
 		padding: 0 15px;
 		.head-pic {
+			position: relative;
 			img {
 				width: 100%;
 			}
+			.top {
+	            position: absolute;
+	            top: 0;
+	            left: 0;
+	            width: 100%;
+	            max-height: 50px;
+	            background-color: rgba(0, 0, 0, 0.5);
+	            color: #fff;
+	            padding: 0 10px;
+	        }
 		}
 	}
 	article.container {
@@ -58,4 +69,19 @@
 .am-form-group .am-u-sm-4 {
     width: 33.33333333%;
     margin: 0 1.5rem;
+}
+
+.am-popup-hd {
+	z-index: 999;
+}
+.am-popup {
+	.button {
+		position: absolute;
+		bottom: 0;
+		width: 100%;
+		text-align: center;
+	}
+	button.am-btn {
+		
+	}
 }

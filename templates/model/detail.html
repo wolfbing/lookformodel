@@ -2,7 +2,7 @@
 {% load staticfiles %}
 {% block css %}
 	{{ block.super }}
-    <link rel="stylesheet" href="{% static 'css/apps/model/model-detail.css' %}">
+    <!-- <link rel="stylesheet" href="{% static 'css/apps/model/model-detail.css' %}"> -->
 {% endblock %}
 
 {% block model_content %}
@@ -13,11 +13,18 @@
 	    </li>
 	    <li><a href="{% url 'model_album' %}">相册</a>
 	    </li>
-	    <li><a href="{% url 'notice' %}">通知</a>
+	    <li><a href="{% url 'model_notice' %}">通知</a>
+	    </li>
+	    <li><a href="{% url 'about' %}">关于我们</a>
+	    </li>
+	    
+	    <li ng-hide="user=='model'" class="pull-right"><a href="#">收藏</a>
+	    </li>
+	    <li ng-hide="user=='model'" class="pull-right"><a href="#">添加到订单</a>
 	    </li>
 	</ul>
 	<div class="content">
-		<p class="content-title">基本资料<a data-am-modal="{target: '#edit-model-modal'}" class="pull-right" href="#">修改</a></p>
+		<p class="content-title">基本资料<a data-am-modal="{target: '#edit-model-popup'}" class="pull-right" href="#">修改</a></p>
 		<div class="list">
 			<div class="left">姓名：</div>
 			<div class="right">wolfbing</div>
@@ -51,7 +58,7 @@
 			<div class="left">脚尺码：</div>
 			<div class="right">37码</div>
 		</div>
-		<p class="content-title">帐号信息<!-- <a class="pull-right" href="#">修改</a> --></p>
+		<p class="content-title">帐号信息<a data-am-modal="{target: '#changepwd-modal'}" class="pull-right" href="#">修改密码</a></p>
 		<div class="list">
 			<div class="left">帐号：</div>
 			<div class="right">wolfbing@gmail.com</div>
@@ -65,12 +72,13 @@
 	</div>
 
 	<!-- 编辑相册 -->
-	<div class="am-modal" tabindex="-1" id="edit-model-modal">
-	    <div class="am-modal-dialog">
-	        <div class="am-modal-hd">编辑模特信息
-	            <a href="javascript: void(0)" class="am-close am-close-spin" data-am-modal-close>&times;</a>
+	<div class="am-popup" tabindex="-1" id="edit-model-popup">
+	    <div class="am-popup-inner">
+	        <div class="am-popup-hd">
+	        <h4 class="am-popup-title">编辑模特信息</h4>
+	            <span data-am-modal-close class="am-close">&times;</span>
 	        </div>
-	        <div class="am-modal-bd">
+	        <div class="am-popup-bd">
 	            <form class="am-form am-form-horizontal">
 				    <div class="am-form-group">
 				        <label for="album-name" class="am-u-sm-3 am-form-label">姓名</label>
@@ -87,6 +95,13 @@
 					    </select>
 					    <span class="am-form-caret"></span>
 					</div>
+
+					<div class="am-form-group">
+				        <label for="album-name" class="am-u-sm-3 am-form-label">联系电话</label>
+				        <div class="am-u-sm-9">
+				            <input type="text" id="album-name" placeholder="联系电话">
+				        </div>
+				    </div>
 
 					<div class="am-form-group">
 				        <label for="album-describe" class="am-u-sm-3 am-form-label">个人简介</label>
@@ -131,7 +146,44 @@
 				            <input type="text" id="album-name" placeholder="脚尺码围">
 				        </div>
 				    </div>
+					<div class="am-form-group">
+						<div class="am-u-sm-offset-3 am-u-sm-6 am-u-end">
+							<button type="button" class="am-u-sm-12 am-btn am-btn-primary">确定</button>
+						</div>
+						
+					</div>
+				</form>
+	        </div>
+	    </div>
+	</div>
 
+	<!-- 修改密码 -->
+	<div class="am-modal" tabindex="-1" id="changepwd-modal">
+	    <div class="am-modal-dialog">
+	        <div class="am-modal-hd">修改密码
+	            <a href="javascript: void(0)" class="am-close am-close-spin" data-am-modal-close>&times;</a>
+	        </div>
+	        <div class="am-modal-bd">
+	            <form class="am-form am-form-horizontal">
+				    <div class="am-form-group">
+				        <label for="album-name" class="am-u-sm-3 am-form-label">当前密码</label>
+				        <div class="am-u-sm-9">
+				            <input type="password" id="album-name" placeholder="请输入当前密码~">
+				        </div>
+				    </div>
+
+				    <div class="am-form-group">
+				        <label for="album-name" class="am-u-sm-3 am-form-label">新密码</label>
+				        <div class="am-u-sm-9">
+				            <input type="password" id="album-name" placeholder="请输入新密码~">
+				        </div>
+				    </div>
+				    <div class="am-form-group">
+				        <label for="album-name" class="am-u-sm-3 am-form-label">确认密码</label>
+				        <div class="am-u-sm-9">
+				            <input type="password" id="album-name" placeholder="请再次输入新密码~">
+				        </div>
+				    </div>
 				</form>
 	        </div>
 	        <div class="am-modal-footer">

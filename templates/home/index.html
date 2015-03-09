@@ -26,6 +26,10 @@
 	</div>
 	
 	<article class="main-container recommend-container am-g am-g-fixed">
+		<div class="search">
+			
+		</div>
+
 		<div class="recommend-line">
 			<span>为您推荐</span>
 		</div>
@@ -33,9 +37,13 @@
 			<li ng-repeat="model in models" class="am-u-lg-3 am-u-md-4 am-u-md-sm-12">
 				<div class="recommend-box box-shadow">
 					<a href="{% url 'model_detail' %}"><img src="{% verbatim %}{{model.src}}{% endverbatim %}" alt=""></a>
+					<div class="top"><span class="pull-left">No.1354</span><span class="pull-right">$100</span></div>
 					<div class="describe">
-						<p>兵兵最叼毛点我查看详细页面</p>
+						<p ng-hide="user == 'business'">hahahahah哈哈哈</p>
+
+						<div ng-hide="user == 'model'" class="business-btn clearfix"><a class="am-btn am-btn-default am-btn-xs pull-left">添加到订单</a><a class="am-btn am-btn-default am-btn-xs pull-right">收藏</a></div>
 					</div>
+
 				</div>
 			</li>
 		</ul>

@@ -12,4 +12,8 @@ urlpatterns = patterns('',
 
     url(r"^$", include('apps.home.urls')),
     url(r"^model/", include('apps.model.urls')),
+    url(r"^business/", include('apps.business.urls')),
+    url(r"^about/", include('apps.about.urls')),
+
+
 )
