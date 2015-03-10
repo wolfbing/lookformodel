@@ -53,7 +53,7 @@
                         <span class="am-icon-users"></span> 丛林之狼 <span class="am-icon-caret-down"></span>
                     </a>
                     <ul class="am-dropdown-content">
-                        <li><a href="#"><span class="am-icon-user"></span> 资料</a>
+                        <li><a href="{% url 'business_profile' %}"><span class="am-icon-user"></span> 资料</a>
                         </li>
                         <li><a href="#"><span class="am-icon-cog"></span> 设置</a>
                         </li>
@@ -72,7 +72,6 @@
             </div>
             <div class="am-radio am-topbar-right">
                 <label for="model">我是模特<input id="model" type="radio" name="haha" value="model" ng-model="user"></label>
-                
             </div>
             <div class="am-radio am-topbar-right" style="margin-top: 10px;">
                 <label for="business">我是商家<input id="business" type="radio" name="haha" value="business" ng-model="user" checked></label>

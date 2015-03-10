@@ -28,6 +28,8 @@
 		.content {
 			padding: 1em;
 			.content-title {
+				width: 100%;
+				float: left;
 				border-bottom: 1px solid #eee;
 			}
 		}
@@ -39,17 +41,32 @@
 	}
 }
 .list {
-	.left, .right {
+	float: left;
+	.left {
 		padding-top: 8px;
 	}
 	.left {
 		width: 100px;
 		float: left;
+		height: 0;
 	}
 	.right {
+		float: left;
+		width: 100%;
 		padding-left: 100px;
 		.am-form-group {
 			margin: 0;
+		}
+		&.pic {
+			height: 210px;
+			.box-shadow {
+				padding: 0;
+				height: 200px;
+				overflow: hidden;
+			}
+			img {
+				width: 100%;
+			}
 		}
 	}
 }

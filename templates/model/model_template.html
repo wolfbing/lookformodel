@@ -10,6 +10,7 @@
 
 	<div class="model-template main-container am-g am-g-fixed clearfix">
 		<aside class="side-bar sm-hidden">
+			{% block aside %}
 			<div class="head-pic am-panel am-panel-default box-shadow">
 			    <img src="{% static 'images/img/a.png' %}" alt="头像">
 			    <div class="top"><span class="pull-left">No.1354</span><span class="pull-right">$100</span></div>
@@ -21,6 +22,7 @@
 			        <p>wo是我扶兵，我为自己带烟～``</p>
 			    </div>
 			</div>
+			{% endblock %}
 			<div class="am-panel am-panel-default box-shadow">
 			    <div class="am-panel-bd">
 			        <p><span class="am-icon-bookmark"></span> 公告</p>
