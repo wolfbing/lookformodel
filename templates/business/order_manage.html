@@ -1,0 +1,95 @@
+{% extends "model/model_template.html" %}
+{% load staticfiles %}
+{% block css %}
+	{{ block.super }}
+    <link rel="stylesheet" href="{% static 'css/apps/business/business.css' %}">
+{% endblock %}
+{% block aside %}
+	<div class="head-pic am-panel am-panel-default box-shadow">
+	    <img src="{% static 'images/img/a.png' %}" alt="头像">
+	    <div class="top"><span class="pull-left">No.1527</span><span class="pull-right">5星</span></div>
+	    <p class="text-center">wolfbing大公司</p>
+	</div>
+	<div class="am-panel am-panel-default box-shadow">
+	    <div class="am-panel-bd">
+	        <p><span class="am-icon-bookmark"></span> 商家简介</p>
+	        <p>wo是我扶兵，我是一个商家～``</p>
+	    </div>
+	</div>
+{% endblock %}
+{% block model_content %}
+	<ul class="am-nav am-nav-pills">
+	    <li><a href="{% url 'home' %}">首页</a>
+	    </li>
+	    <li><a href="{% url 'business_profile' %}">商家资料</a>
+	    </li>
+	    <li class="am-active"><a ng-hide="user=='model'" href="#">订单管理</a>
+	    </li>
+	    <li><a href="{% url 'model_notice' %}">我的收藏</a>
+	    </li>
+	    <li><a href="{% url 'about' %}">关于我们</a>
+	    </li>
+	    
+	    <li ng-hide="user=='model'" class="pull-right"><a href="{% url 'order_create' %}">创建订单</a>
+	    </li>
+	</ul>
+	<div class="content">
+		<p class="content-title">订单管理</p>
+		<div class="am-tabs" data-am-tabs>
+			<ul class="am-tabs-nav am-nav am-nav-tabs">
+			    <li class="am-active"><a href="#tab1">未提交</a>
+			    </li>
+			    <li><a href="#tab2">已提交</a>
+			    </li>
+			    <li><a href="#tab3">已完成</a>
+			    </li>
+			    <li><a href="#tab4">废弃</a>
+			    </li>
+			</ul>
+
+			<div class="am-tabs-bd table">
+			    <div class="am-tab-panel am-fade am-in am-active" id="tab1">
+				    <div class="tr clearfix">
+				    	<div class="am-u-sm-2">序号</div>
+				    	<div class="am-u-sm-4">订单标题</div>
+				    	<div class="am-u-sm-4">创建日期</div>
+				    	<div class="am-u-sm-2">操作</div>
+				    </div>
+
+			    	<ul>
+			    		<li class="td clearfix" ng-repeat="i in [1,2,3,4,5]">
+			    			<div class="am-u-sm-2">1</div>
+			    			<a class="am-u-sm-4" href="{% url 'order_detail' %}">这个订单号啊</a>
+			    			<div class="am-u-sm-4">2015-01-22</div>
+			    			<a data-am-modal="{target: '#delete-order-confirm'}" class="am-u-sm-2" href="#">删除</a>
+			    		</li>
+			    	</ul>
+			    </div>
+			    <div class="am-tab-panel am-fade" id="tab2">
+			    </div>
+			    <div class="am-tab-panel am-fade" id="tab3">
+			    </div>
+			    <div class="am-tab-panel am-fade" id="tab4">
+			    </div>
+			</div>
+		</div>
+
+	</div>
+
+	<!-- 删除相片 -->
+	<div class="am-modal am-modal-confirm" tabindex="-1" id="delete-order-confirm">
+	    <div class="am-modal-dialog">
+	        <div class="am-modal-hd">删除提醒</div>
+	        <div class="am-modal-bd">
+	            确定要删除此订单吗？
+	        </div>
+	        <div class="am-modal-footer">
+	            <span class="am-modal-btn" data-am-modal-cancel>取消</span>
+	            <span class="am-modal-btn" data-am-modal-confirm>确定</span>
+	        </div>
+	    </div>
+	</div>
+{% endblock %}
+
+{% block javascript %}
+{% endblock %}

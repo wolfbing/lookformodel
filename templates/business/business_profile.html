@@ -23,14 +23,14 @@
 	    </li>
 	    <li class="am-active"><a href="#">商家资料</a>
 	    </li>
-	    <li><a ng-hide="user=='model'" href="{% url 'model_album' %}">订单管理</a>
+	    <li><a ng-hide="user=='model'" href="{% url 'order_manage' %}">订单管理</a>
 	    </li>
-	    <li><a ng-hide="user=='model'" href="{% url 'model_notice' %}">我的收藏</a>
+	    <li><a ng-hide="user=='model'" href="{% url 'collect' %}">我的收藏</a>
 	    </li>
 	    <li><a href="{% url 'about' %}">关于我们</a>
 	    </li>
 	    
-	    <li ng-hide="user=='model'" class="pull-right"><a href="#">创建订单</a>
+	    <li ng-hide="user=='model'" class="pull-right"><a href="{% url 'order_create' %}">创建订单</a>
 	    </li>
 	</ul>
 	<div class="content">
