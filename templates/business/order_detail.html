@@ -1,1 +1,65 @@
-order_detail.html
+{% extends "model/model_template.html" %}
+{% load staticfiles %}
+{% block css %}
+	{{ block.super }}
+    <link rel="stylesheet" href="{% static 'css/apps/business/business.css' %}">
+{% endblock %}
+{% block aside %}
+	<div class="head-pic am-panel am-panel-default box-shadow">
+	    <img src="{% static 'images/img/a.png' %}" alt="头像">
+	    <div class="top"><span class="pull-left">No.1527</span><span class="pull-right">5星</span></div>
+	    <p class="text-center">wolfbing大公司</p>
+	</div>
+	<div class="am-panel am-panel-default box-shadow">
+	    <div class="am-panel-bd">
+	        <p><span class="am-icon-bookmark"></span> 商家简介</p>
+	        <p>wo是我扶兵，我是一个商家～``</p>
+	    </div>
+	</div>
+{% endblock %}
+{% block model_content %}
+	<ul class="am-nav am-nav-pills">
+	    <li><a href="{% url 'home' %}">首页</a>
+	    </li>
+	    <li><a href="{% url 'business_profile' %}">商家资料</a>
+	    </li>
+	    <li class="am-active"><a ng-hide="user=='model'" href="#">订单管理</a>
+	    </li>
+	    <li><a href="{% url 'collect' %}">我的收藏</a>
+	    </li>
+	    <li><a href="{% url 'about' %}">关于我们</a>
+	    </li>
+	    
+	    <li ng-hide="user=='model'" class="pull-right"><a href="{% url 'order_create' %}">创建订单</a>
+	    </li>
+	</ul>
+	<div class="content">
+		<p class="content-title">订单详情<a href="#" class="pull-right" data-am-modal="{target: '#delete-order-confirm'}">删除订单</a></p>
+		<div class="content-detail">
+			<p>订单名称</p>
+			<p>创建时间：2015-01-22</p>
+			<p>订单简介：巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉</p>
+			<div class="pic-models clearfix">
+				<div ng-repeat="i in [1,2,3,4,5]" class="model box-shadow"><a href="{% url 'model_detail' %}"><img src="{% static 'images/img/a.png' %}" alt=""></a><i>No.9527</i></div>
+			</div>
+		</div>
+		
+	</div>
+
+	<!-- 删除订单 -->
+	<div class="am-modal am-modal-confirm" tabindex="-1" id="delete-order-confirm">
+	    <div class="am-modal-dialog">
+	        <div class="am-modal-hd">删除提醒</div>
+	        <div class="am-modal-bd">
+	            确定要删除此订单吗？
+	        </div>
+	        <div class="am-modal-footer">
+	            <span class="am-modal-btn" data-am-modal-cancel>取消</span>
+	            <span class="am-modal-btn" data-am-modal-confirm>确定</span>
+	        </div>
+	    </div>
+	</div>
+{% endblock %}
+
+{% block javascript %}
+{% endblock %}

@@ -1,1 +1,96 @@
-order_create.html
+{% extends "model/model_template.html" %}
+{% load staticfiles %}
+{% block css %}
+	{{ block.super }}
+    <link rel="stylesheet" href="{% static 'css/apps/business/business.css' %}">
+{% endblock %}
+{% block aside %}
+	<div class="head-pic am-panel am-panel-default box-shadow">
+	    <img src="{% static 'images/img/a.png' %}" alt="头像">
+	    <div class="top"><span class="pull-left">No.1527</span><span class="pull-right">5星</span></div>
+	    <p class="text-center">wolfbing大公司</p>
+	</div>
+	<div class="am-panel am-panel-default box-shadow">
+	    <div class="am-panel-bd">
+	        <p><span class="am-icon-bookmark"></span> 商家简介</p>
+	        <p>wo是我扶兵，我是一个商家～``</p>
+	    </div>
+	</div>
+{% endblock %}
+{% block model_content %}
+	<ul class="am-nav am-nav-pills">
+	    <li><a href="{% url 'home' %}">首页</a>
+	    </li>
+	    <li><a href="{% url 'business_profile' %}">商家资料</a>
+	    </li>
+	    <li class="am-active"><a ng-hide="user=='model'" href="#">订单管理</a>
+	    </li>
+	    <li><a href="{% url 'collect' %}">我的收藏</a>
+	    </li>
+	    <li><a href="{% url 'about' %}">关于我们</a>
+	    </li>
+
+	</ul>
+	<div class="content">
+		<p class="content-title">订单创建</p>
+		<div class="content-detail">
+			<form class="am-form am-form-horizontal">
+			    <div class="am-form-group">
+			        <div class="am-u-sm-6">
+			            <input type="text" id="album-name" placeholder="订单标题">
+			        </div>
+			    </div>
+
+				<div class="am-form-group">
+			        <div class="am-u-sm-8">
+			            <textarea id="album-describe" rows="4" placeholder="订单简介"></textarea>
+			        </div>
+			    </div>
+				
+
+				<div class="pic-models clearfix">
+					<div ng-repeat="i in [1,2,3,4,5]" class="model box-shadow"><a href="{% url 'model_detail' %}"><img src="{% static 'images/img/a.png' %}" alt=""></a><i>No.9527</i><a href="#" class="delete">删除</a></div>
+					<div class="model box-shadow"><a  data-am-modal="{target: '#add-model-popup'}" href="#"><i class="icon ion-android-add"></i></a></div>
+				</div>
+
+				<div class="am-form-group clearfix">
+					<div class="am-u-sm-2 am-u-end">
+						<button type="button" class="am-u-sm-12 am-btn am-btn-primary">保存</button>
+					</div>
+					<div class="am-u-sm-2 am-u-end">
+						<button type="button" class="am-u-sm-12 am-btn am-btn-primary">提交</button>
+					</div>
+					
+				</div>			
+			</form>
+			
+
+
+		</div>
+		
+	</div>
+
+	<!-- 添加模特 -->
+	<div class="am-popup" tabindex="-1" id="add-model-popup">
+	    <div class="am-popup-inner">
+	        <div class="am-popup-hd">
+	        <h4 class="am-popup-title">添加模特</h4>
+	            <span data-am-modal-close class="am-close">&times;</span>
+	        </div>
+	        <div class="am-popup-bd">
+	            <div class="pic-models clearfix">
+					<div ng-repeat="i in [1,2,3,4,5]" class="model box-shadow"><a href="#"><span class="icon ion-ios-checkmark-empty"></span><img src="{% static 'images/img/a.png' %}" alt=""></a><i>No.9527</i></div>
+				</div>
+				<div class="am-form-group clearfix">
+					<div class="am-u-sm-offset-3 am-u-sm-6 am-u-end">
+						<button type="button" class="am-u-sm-12 am-btn am-btn-primary">确定</button>
+					</div>
+					
+				</div>
+	        </div>
+	    </div>
+	</div>
+{% endblock %}
+
+{% block javascript %}
+{% endblock %}
